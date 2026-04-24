@@ -1,219 +1,1165 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>USA State Icons | SVG Icons for 50 states of the USA</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============ SEO ============ -->
+<title>Free SVG Icons of All 50 US States — Sprite Sheet & CDN</title>
+<meta name="description" content="A free, open-source SVG sprite sheet of all 50 United States, in three sizes. CSS-styleable, CDN-hosted on jsDelivr, no attribution required. Copy standalone SVGs or load the sprite in one fetch.">
+<meta name="keywords" content="US states SVG, United States SVG icons, state silhouettes, SVG sprite sheet, state icons, free SVG states, USA map icons, jsDelivr SVG, open source SVG icons, state shape SVG, US map SVG">
+<meta name="author" content="nouchee">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#b8342f">
+
+<link rel="canonical" href="https://nouchee.github.io/usa-svg-icons/">
+
+<!-- Open Graph (Facebook, LinkedIn, Discord, iMessage, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="usa-svg-icons">
+<meta property="og:title" content="Free SVG Icons of All 50 US States — Sprite Sheet & CDN">
+<meta property="og:description" content="50 U.S. state silhouettes as a free SVG sprite sheet. Three sizes, CSS-styleable, CDN-hosted. Copy standalone SVGs with one click.">
+<meta property="og:url" content="https://nouchee.github.io/usa-svg-icons/">
+<meta property="og:image" content="https://nouchee.github.io/usa-svg-icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Preview of all 50 US state SVG icons in a grid">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free SVG Icons of All 50 US States">
+<meta name="twitter:description" content="CDN-hosted SVG sprite of every U.S. state, free and open-source. Style with CSS, copy in one click.">
+<meta name="twitter:image" content="https://nouchee.github.io/usa-svg-icons/og-image.png">
+<meta name="twitter:image:alt" content="Preview of all 50 US state SVG icons in a grid">
+
+<!-- Structured data for Google rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "usa-svg-icons",
+  "description": "A free, open-source SVG sprite sheet containing silhouettes of all 50 United States in three sizes, hosted on jsDelivr.",
+  "codeRepository": "https://github.com/nouchee/usa-svg-icons",
+  "programmingLanguage": "SVG",
+  "license": "https://opensource.org/licenses/MIT",
+  "author": {
+    "@type": "Person",
+    "name": "nouchee",
+    "url": "https://github.com/nouchee"
+  },
+  "url": "https://nouchee.github.io/usa-svg-icons/",
+  "keywords": "SVG, icons, United States, states, sprite sheet, CDN"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🗺️%3C/text%3E%3C/svg%3E">
+
+<!-- ============ Fonts ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,slnt,wght@6..144,-10..0,100..1000&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #f4efe6;
+    --ink: #1a1a1a;
+    --ink-soft: #5c5c5c;
+    --rule: #1a1a1a;
+    --accent: #b8342f;       /* oxblood */
+    --accent-2: #2c5f7e;     /* deep teal */
+    --accent-3: #d4a42c;     /* brass */
+    --muted: #c9c1b3;
+    --state-color: var(--accent);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-feature-settings: "ss01";
+  }
+
+  body {
+    /* Subtle paper texture via repeating gradient */
+    background-image:
+      radial-gradient(ellipse at top, rgba(0,0,0,0.02), transparent 60%),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.012) 3px,
+        rgba(0,0,0,0.012) 4px
+      );
+  }
+
+  /* ---------- Top-right GitHub link ---------- */
+  .github-link {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    z-index: 50;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .github-link:hover {
+    background: var(--ink);
+    color: var(--paper);
+    transform: translateY(-1px);
+  }
+  .github-link svg { display: block; }
+
+  /* ---------- Masthead ---------- */
+  header.masthead {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 48px 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .masthead-hero {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .masthead-wi {
+    flex-shrink: 0;
+    width: clamp(140px, 18vw, 240px);
+    height: auto;
+    fill: var(--accent);
+    filter: drop-shadow(0 6px 16px rgba(184, 52, 47, 0.2));
+  }
+
+  .masthead-text {
+    flex: 1 1 400px;
+  }
+
+  h1 {
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin: 0;
+    font-variation-settings: "opsz" 144;
+  }
+
+  h1 em {
+    font-style: normal;
+    font-weight: 600;
+    font-variation-settings: "opsz" 144;
+    color: var(--accent);
+  }
+
+  .dek {
+    max-width: 640px;
+    margin: 28px 0 0;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 18;
+  }
+
+  /* ---------- Controls ---------- */
+  .controls {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 64px;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .control-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .swatches {
+    display: flex;
+    gap: 6px;
+  }
+
+  .swatch {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.15s;
+  }
+
+  .swatch:hover { transform: translateY(-2px); }
+
+  .swatch[aria-pressed="true"] {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  .size-toggle {
+    display: inline-flex;
+    border: 1px solid var(--rule);
+  }
+
+  .size-toggle button {
+    background: transparent;
+    border: 0;
+    padding: 8px 16px;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--ink);
+    border-right: 1px solid var(--rule);
+  }
+
+  .size-toggle button:last-child { border-right: 0; }
+
+  .size-toggle button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .search {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 6px 0;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    outline: none;
+    width: 220px;
+  }
+
+  .search::placeholder {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* ---------- Grid of states ---------- */
+  main.grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 2px;
+    background: rgba(26,26,26,0.12);
+    border: 1px solid var(--rule);
+  }
+
+  main.grid[hidden] { display: none; }
+
+  .state-card {
+    background: var(--paper);
+    padding: 24px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    transition: background 0.25s ease;
+  }
+
+  .state-card:hover {
+    background: #faf6ee;
+  }
+
+  .state-card[data-hidden="true"] {
+    display: none;
+  }
+
+  .state-svg-wrap {
+    width: 100%;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ===== THE KEY CSS: style the sprite via .state-icon ===== */
+  .state-icon {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    fill: var(--state-color);
+    color: var(--state-color);     /* for currentColor fallbacks */
+    transition: fill 0.3s ease;
+  }
+
+  .state-caption {
+    text-align: center;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+  }
+
+  .state-abbr {
+    display: inline-block;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    font-variation-settings: "opsz" 14, "slnt" -8;
+  }
+
+  .state-name {
+    display: block;
+    margin-top: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  /* ---------- Loading / error states ---------- */
+  .status {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 48px;
+    text-align: center;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.2rem;
+  }
+
+  .status.error {
+    color: var(--accent);
+    font-style: normal;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+
+  .status pre {
+    margin-top: 16px;
+    text-align: left;
+    background: rgba(0,0,0,0.04);
+    padding: 16px;
+    font-size: 11px;
+    font-family: ui-monospace, Menlo, monospace;
+    line-height: 1.5;
+    overflow-x: auto;
+  }
+
+  /* ---------- Usage section ---------- */
+  section.usage {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 48px 48px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  section.usage h2 {
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-weight: 600;
+    font-variation-settings: "opsz" 36;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+
+  section.usage p {
+    max-width: 640px;
+    margin: 0 0 16px;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  section.usage pre {
+    background: #1a1a1a;
+    color: #f4efe6;
+    padding: 20px 24px;
+    margin: 0 0 24px;
+    overflow-x: auto;
+    border-radius: 2px;
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  section.usage pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border: 0;
+    font-size: inherit;
+  }
+
+  section.usage code {
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 0.9em;
+    background: rgba(26,26,26,0.08);
+    padding: 1px 6px;
+    border-radius: 2px;
+  }
+
+  /* ---------- Sprite options grid ---------- */
+  .sprite-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 0 0 28px;
+  }
+
+  @media (max-width: 720px) {
+    .sprite-options { grid-template-columns: 1fr; }
+  }
+
+  .sprite-option {
+    border: 1px solid rgba(26,26,26,0.15);
+    border-radius: 4px;
+    padding: 18px 20px 16px;
+    background: rgba(255,255,255,0.4);
+    min-width: 0;  /* allow shrinking so the <pre> inside can overflow-x scroll */
+  }
+
+  .sprite-option-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+  }
+
+  .sprite-option-name {
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .sprite-option-tag {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 8px;
+    background: var(--accent);
+    color: var(--paper);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    vertical-align: 2px;
+  }
+
+  .sprite-option-meta {
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 14;
+  }
+
+  .sprite-option pre {
+    margin: 0 0 10px;
+    padding: 12px 100px 12px 14px;  /* right padding reserves space for the copy button */
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: pre-wrap;    /* wrap long URLs instead of clipping */
+    word-break: break-all;
+  }
+
+  .sprite-option-note {
+    font-size: 14px !important;
+    color: var(--ink-soft);
+    margin: 0 !important;
+    line-height: 1.45 !important;
+  }
+
+  /* ---------- Skip-to-icons button ---------- */
+  .skip-to-icons {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .skip-to-icons:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .skip-to-icons svg {
+    transition: transform 0.2s ease;
+  }
+  .skip-to-icons:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ---------- Copy buttons on <pre> blocks ---------- */
+  .pre-wrap {
+    position: relative;
+    margin: 0 0 24px;
+  }
+  .pre-wrap pre {
+    margin: 0;
+    padding-right: 88px;  /* leave room for the button on wide screens */
+  }
+
+  .pre-copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: rgba(244, 239, 230, 0.08);
+    color: #d6d0c3;
+    border: 1px solid rgba(244, 239, 230, 0.18);
+    border-radius: 3px;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .pre-copy-btn:hover {
+    background: rgba(244, 239, 230, 0.16);
+    color: var(--paper);
+    border-color: rgba(244, 239, 230, 0.32);
+  }
+  .pre-copy-btn.is-copied {
+    background: var(--accent-3);
+    color: var(--ink);
+    border-color: var(--accent-3);
+  }
+  .pre-copy-btn.is-copied::after {
+    content: "✓";
+    margin-left: 2px;
+  }
+  .pre-copy-btn svg { display: block; }
+
+  /* Sprite option cards have narrower pre, so tighten up */
+  .sprite-option .pre-wrap pre { padding-right: 100px; }
+
+  /* ---------- Empty state ---------- */
+  .empty-state {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
+    text-align: center;
+  }
+
+  .empty-state[hidden] { display: none; }
+
+  .empty-state .empty-headline {
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-variation-settings: "opsz" 48;
+  }
+
+  .empty-state .empty-sub {
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ---------- Loading state ---------- */
+  /* While the sprite is still loading, show a soft pulse where each icon will appear */
+  .grid.is-loading .state-svg-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(26,26,26,0.05);
+    animation: sprite-pulse 1.2s ease-in-out infinite;
+  }
+  .state-svg-wrap { position: relative; }
+
+  @keyframes sprite-pulse {
+    0%, 100% { opacity: 0.3; }
+    50%      { opacity: 0.9; }
+  }
+
+  /* ---------- Per-state action buttons ---------- */
+  .state-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .state-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 6px;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid rgba(26,26,26,0.18);
+    border-radius: 3px;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    min-width: 0;
+  }
+  .state-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .state-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .state-btn.is-flashing {
+    background: var(--accent-3);
+    border-color: var(--accent-3);
+    color: var(--ink);
+    animation: btn-flash 0.7s ease-out;
+  }
+  @keyframes btn-flash {
+    0%   { background: var(--accent-3); transform: scale(1.05); }
+    100% { background: transparent; transform: scale(1); }
+  }
+
+  .state-btn svg {
+    display: block;
+    flex-shrink: 0;
+  }
+  .state-btn span {
+    white-space: nowrap;
+  }
+
+  /* Tighten button text at narrower card widths so both fit on one line */
+  @media (max-width: 900px) {
+    .state-btn span { font-size: 10px; }
+  }
+
+  /* ---------- Toast ---------- */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 22px;
+    font-family: 'Google Sans Flex', system-ui, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 2px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+    pointer-events: none;
+    max-width: calc(100vw - 48px);
+    text-align: center;
+  }
+
+  .toast[hidden] { display: none; }
+
+  .toast.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .toast .toast-accent {
+    color: var(--accent-3);
+    margin-right: 6px;
+  }
+
+  /* Responsive polish */
+  @media (max-width: 640px) {
+    header.masthead, .controls, main.grid, section.usage, .empty-state {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    header.masthead { padding-top: 72px; padding-bottom: 24px; }
+    .masthead-hero { gap: 24px; }
+    .controls { gap: 24px; }
+    .github-link {
+      top: 16px;
+      right: 16px;
+      padding: 8px 10px;
+    }
+    .github-link span { display: none; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Toast Notification -->
-  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index:9999">
-    <div id="copyToast" class="toast align-items-center border-0" role="alert">
-      <div class="d-flex">
-        <div class="toast-body" id="toastMessage"></div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+<!-- Sprite SVGs get fetched from jsDelivr and injected here at runtime -->
+<div id="sprite-host" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;"></div>
+
+<!-- Copy-to-clipboard toast -->
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<!-- Fixed top-right GitHub link -->
+<a class="github-link" href="https://github.com/nouchee/usa-svg-icons" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+    <path fill="currentColor" d="M12 .5C5.648.5.5 5.648.5 12c0 5.082 3.292 9.388 7.86 10.908.575.106.785-.25.785-.554 0-.273-.01-.996-.016-1.955-3.198.695-3.873-1.54-3.873-1.54-.523-1.329-1.277-1.683-1.277-1.683-1.044-.713.08-.699.08-.699 1.155.081 1.762 1.186 1.762 1.186 1.026 1.758 2.693 1.25 3.35.955.104-.743.402-1.25.732-1.538-2.552-.29-5.237-1.276-5.237-5.68 0-1.255.448-2.28 1.184-3.084-.119-.29-.513-1.46.112-3.045 0 0 .966-.309 3.164 1.178a10.99 10.99 0 0 1 2.88-.388c.977.004 1.963.132 2.88.388 2.196-1.487 3.16-1.178 3.16-1.178.627 1.585.233 2.755.115 3.045.737.804 1.183 1.829 1.183 3.084 0 4.416-2.69 5.386-5.252 5.669.413.355.78 1.056.78 2.128 0 1.536-.013 2.775-.013 3.152 0 .307.207.666.79.553C20.212 21.385 23.5 17.08 23.5 12 23.5 5.648 18.352.5 12 .5Z"/>
+  </svg>
+  <span>GitHub</span>
+</a>
+
+<header class="masthead">
+  <div class="masthead-hero">
+    <svg class="masthead-wi" viewBox="0 0 379.244 400" aria-hidden="true">
+      <path d="M26.042 86.369c-13.76 10.736-21.494 12.2-25.6 26.046-4.33 17.274 24.907 16.817 8.7 35.225-8.005 9.738-4.745 28.5-6.215 45.083a10.827 10.827 0 0 0 4.794 8.854c9.872 6.917 51.222 30.687 49.528 32.713 1.687 3.82-0.443 11.467 2.272 14.506 37.749 26.938 36.93 16.861 44.9 61.14 2.507 6.313 12.568 16.313 11 22.594-1.064 5.435-7.217 12.819-6.972 18.134 0.428 6.434 4.6 23.588 6.534 25.59 11.481 4.956 17.266 6.316 24.936 18.093a10.3 10.3 0 0 0 8.017 4.017c71.241 1.041 129.556 1.466 168.563 1.636 7.089-0.3 5.759-8.222 5.4-13.35-6.725-44.519-8.557-59.678 8.091-101.086 10.824-42.962 25.744-87.035 48.9-127.985a3.487 3.487 0 0 0-1.53-4.662c-2.747-1.391-5.591-2.318-8.172 0.023-4.834 4.34-11.018 9.462-13.695 15.691-3.377 6.1-4.977 15.832-11.383 19.756-3.813 2.228-8.175 3.692-10.812 7.4-4.987 5.116-14.013 22.568-19.62 23.776-6.861-1.446-4.141-10.771-2.185-15.321 3.673-7.7 12.89-15.541 17.908-21.89 3.634-5.145 2.945-18.3-4.9-21.359-5.992-1.609-8.346-13.519-7.377-16.042a133.714 133.714 0 0 1 3.561-19.482c-0.912-10.088-0.166-15.447-16.494-16.494-4.813 0.19-5.106-4.921-5.206-9.88 1.513-8.959-37.036-11.727-42.422-13.648-8.14-1.16-70.873-22.613-77.155-26.383-5.71-2.488-19.346-23.79-29.815-29.9-13.672-7.878-16.233-34.5-34.989-28.209-45.511 17.284-72.823 15.307-77.667 25.437-4.406 9.214 4.179 53.444-0.556 52.443-1.607 1.317-5.651 4.2-10.331 7.535"/>
+    </svg>
+    <div class="masthead-text">
+      <h1>United States<br><em>SVG</em> Icon<br>Sprites Sheet</h1>
+    </div>
+  </div>
+  <p class="dek">
+    A free, CDN-hosted sprite of all 50 U.S. state silhouettes, in three sizes. No hardcoded
+    fills — color is controlled entirely by CSS. Pick a swatch to recolor the lot, switch
+    sizes, or click any state to copy its standalone SVG markup.
+  </p>
+  <a href="#icons" class="skip-to-icons">
+    Skip to icons
+    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+    </svg>
+  </a>
+</header>
+
+<section class="usage">
+  <h2>Usage</h2>
+  <p>
+    Four sprite files are published on jsDelivr. Pick the bundle for flexibility, or a
+    per-size file to ship the minimum bytes. Each <code>&lt;symbol&gt;</code> is keyed by
+    USPS abbreviation; in the bundle, IDs are suffixed with the size.
+  </p>
+
+  <div class="sprite-options">
+    <div class="sprite-option">
+      <div class="sprite-option-head">
+        <span class="sprite-option-name">Bundle <span class="sprite-option-tag">recommended</span></span>
+        <span class="sprite-option-meta">131 KB · 150 symbols · all three sizes</span>
       </div>
+      <pre><code>https://cdn.jsdelivr.net/gh/nouchee/usa-svg-icons/states.svg</code></pre>
+      <p class="sprite-option-note">
+        IDs: <code>#ca-sm</code>, <code>#ca-md</code>, <code>#ca-lg</code>. Ship one file,
+        switch sizes at runtime without a second fetch.
+      </p>
+    </div>
+
+    <div class="sprite-option">
+      <div class="sprite-option-head">
+        <span class="sprite-option-name">Small only</span>
+        <span class="sprite-option-meta">24 KB · 50 symbols</span>
+      </div>
+      <pre><code>https://cdn.jsdelivr.net/gh/nouchee/usa-svg-icons/states-sm.svg</code></pre>
+      <p class="sprite-option-note">IDs: <code>#ca</code>. Best for dense icon rows and navigation.</p>
+    </div>
+
+    <div class="sprite-option">
+      <div class="sprite-option-head">
+        <span class="sprite-option-name">Medium only</span>
+        <span class="sprite-option-meta">43 KB · 50 symbols</span>
+      </div>
+      <pre><code>https://cdn.jsdelivr.net/gh/nouchee/usa-svg-icons/states-md.svg</code></pre>
+      <p class="sprite-option-note">IDs: <code>#ca</code>. Good default for most UIs.</p>
+    </div>
+
+    <div class="sprite-option">
+      <div class="sprite-option-head">
+        <span class="sprite-option-name">Large only</span>
+        <span class="sprite-option-meta">66 KB · 50 symbols</span>
+      </div>
+      <pre><code>https://cdn.jsdelivr.net/gh/nouchee/usa-svg-icons/states-lg.svg</code></pre>
+      <p class="sprite-option-note">IDs: <code>#ca</code>. For hero illustrations and detail-heavy maps.</p>
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container">
-      <div class="header-inner">
-        <div class="header-brand d-flex align-items-center">
-          <h1 class="header-title p-0 m-0">SVG Icons of All 50 States. </h1>
-        </div>
-        <!-- Dark/Light mode toggle -->
-        <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
-          <!-- Sun icon (shown in dark mode) -->
-          <svg class="theme-icon theme-icon--sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="10" cy="10" r="4"/>
-            <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.93 4.93l1.41 1.41M13.66 13.66l1.41 1.41M4.93 15.07l1.41-1.41M13.66 6.34l1.41-1.41"/>
+  <p>
+    Browsers don't allow <code>&lt;use href="https://…/states.svg#ca-md"&gt;</code> across
+    origins — that's a long-standing SVG limitation, not a jsDelivr issue. The practical
+    pattern is to fetch the sprite once and inject it into your page, then reference
+    symbols with a local fragment:
+  </p>
+
+  <pre><code>// Load the sprite once on page init
+fetch('https://cdn.jsdelivr.net/gh/nouchee/usa-svg-icons/states.svg')
+  .then(r =&gt; r.text())
+  .then(svg =&gt; {
+    const div = document.createElement('div');
+    div.style.display = 'none';
+    div.innerHTML = svg;
+    document.body.prepend(div);
+  });</code></pre>
+
+  <p>Then reference any state by abbreviation (and size, if using the bundle):</p>
+
+  <pre><code>&lt;!-- Bundle: include the size suffix --&gt;
+&lt;svg width="96" height="96" style="fill: #b8342f"&gt;
+  &lt;use href="#ca-md"&gt;&lt;/use&gt;
+&lt;/svg&gt;
+
+&lt;!-- Per-size sprite: abbreviation only --&gt;
+&lt;svg width="96" height="96" style="fill: #b8342f"&gt;
+  &lt;use href="#ca"&gt;&lt;/use&gt;
+&lt;/svg&gt;</code></pre>
+
+  <p>
+    Or, if you just need one state at one size: click any tile below to copy standalone
+    SVG markup you can paste anywhere — no sprite, no fetch required.
+  </p>
+</section>
+
+<section class="controls" id="icons">
+  <div class="control-group">
+    <span class="control-label">Fill color</span>
+    <div class="swatches" role="radiogroup" aria-label="State fill color">
+      <button class="swatch" aria-pressed="true"  data-color="#b8342f" style="background:#b8342f" aria-label="Oxblood"></button>
+      <button class="swatch" aria-pressed="false" data-color="#2c5f7e" style="background:#2c5f7e" aria-label="Teal"></button>
+      <button class="swatch" aria-pressed="false" data-color="#d4a42c" style="background:#d4a42c" aria-label="Brass"></button>
+      <button class="swatch" aria-pressed="false" data-color="#1a1a1a" style="background:#1a1a1a" aria-label="Ink"></button>
+      <button class="swatch" aria-pressed="false" data-color="#5c7a3e" style="background:#5c7a3e" aria-label="Moss"></button>
+      <button class="swatch" aria-pressed="false" data-color="#8b4a96" style="background:#8b4a96" aria-label="Plum"></button>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <span class="control-label">Size variant</span>
+    <div class="size-toggle" role="radiogroup" aria-label="Sprite size">
+      <button data-size="sm" aria-pressed="false">Sm</button>
+      <button data-size="md" aria-pressed="true">Md</button>
+      <button data-size="lg" aria-pressed="false">Lg</button>
+    </div>
+  </div>
+
+  <div class="control-group" style="flex: 1 1 260px;">
+    <span class="control-label">Filter</span>
+    <input class="search" id="search" type="text" placeholder="Try &ldquo;california&rdquo;&hellip;" autocomplete="off">
+  </div>
+</section>
+
+<main id="grid" class="grid"></main>
+<div id="empty-state" class="empty-state" hidden>
+  <p class="empty-headline">No states match that filter.</p>
+  <p class="empty-sub">Try a different search term or clear the filter.</p>
+</div>
+
+<script>
+  const SPRITE_URL = 'https://cdn.jsdelivr.net/gh/nouchee/usa-svg-icons/states.svg';
+
+  const STATES = [
+    ['al','Alabama'],['ak','Alaska'],['az','Arizona'],['ar','Arkansas'],
+    ['ca','California'],['co','Colorado'],['ct','Connecticut'],['de','Delaware'],
+    ['fl','Florida'],['ga','Georgia'],['hi','Hawaii'],['id','Idaho'],
+    ['il','Illinois'],['in','Indiana'],['ia','Iowa'],['ks','Kansas'],
+    ['ky','Kentucky'],['la','Louisiana'],['me','Maine'],['md','Maryland'],
+    ['ma','Massachusetts'],['mi','Michigan'],['mn','Minnesota'],['ms','Mississippi'],
+    ['mo','Missouri'],['mt','Montana'],['ne','Nebraska'],['nv','Nevada'],
+    ['nh','New Hampshire'],['nj','New Jersey'],['nm','New Mexico'],['ny','New York'],
+    ['nc','North Carolina'],['nd','North Dakota'],['oh','Ohio'],['ok','Oklahoma'],
+    ['or','Oregon'],['pa','Pennsylvania'],['ri','Rhode Island'],['sc','South Carolina'],
+    ['sd','South Dakota'],['tn','Tennessee'],['tx','Texas'],['ut','Utah'],
+    ['vt','Vermont'],['va','Virginia'],['wa','Washington'],['wv','West Virginia'],
+    ['wi','Wisconsin'],['wy','Wyoming']
+  ];
+  STATES.sort((a, b) => a[1].localeCompare(b[1]));
+
+  const grid         = document.getElementById('grid');
+  const emptyState   = document.getElementById('empty-state');
+  const spriteHost   = document.getElementById('sprite-host');
+  const toast        = document.getElementById('toast');
+  const stateByAbbr  = Object.fromEntries(STATES);
+
+  let currentSize = 'md';
+
+  // ---------- Sprite loading ----------
+  // The combined sprite holds all 50 states × 3 sizes as <symbol id="abbr-size">.
+  // Fetch it once on load and inject; all subsequent renders are DOM-local.
+  let spritePromise = null;
+
+  function loadSprite() {
+    if (spritePromise) return spritePromise;
+    spritePromise = fetch(SPRITE_URL)
+      .then(r => {
+        if (!r.ok) throw new Error(`Failed to load ${SPRITE_URL}: ${r.status}`);
+        return r.text();
+      })
+      .then(svg => {
+        spriteHost.innerHTML = svg;
+        grid.classList.remove('is-loading');
+      });
+    return spritePromise;
+  }
+
+  // ---------- Render cards ----------
+  grid.classList.add('is-loading');
+  grid.innerHTML = STATES.map(([abbr, name]) => `
+    <article class="state-card" data-abbr="${abbr}" data-name="${name.toLowerCase()}">
+      <div class="state-svg-wrap">
+        <svg class="state-icon" aria-label="${name}">
+          <use href="#${abbr}-md"></use>
+        </svg>
+      </div>
+      <div class="state-caption">
+        <span class="state-abbr">${abbr.toUpperCase()}</span>
+        <span class="state-name">${name}</span>
+      </div>
+      <div class="state-actions">
+        <button type="button" class="state-btn" data-action="copy" aria-label="Copy ${name} SVG code">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 3h9a2 2 0 0 1 2 2v9M6 6h9a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/>
           </svg>
-          <!-- Moon icon (shown in light mode) -->
-          <svg class="theme-icon theme-icon--moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.003 8.003 0 1010.586 10.586z"/>
+          <span>Copy</span>
+        </button>
+        <button type="button" class="state-btn" data-action="download" aria-label="Download ${name} SVG">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/>
           </svg>
+          <span>Download</span>
         </button>
       </div>
-    </div>
-  </header>
+    </article>
+  `).join('');
 
-  <!-- Controls Bar -->
-   <div class="container-fluid" style="background-color: var(--color-header-bg);">
-    <div class="container pt-3">
-    <div class="row">
-      <div class="col">
-        <p >Customize colors, stroke, and download in SVG, PNG, or JPG. <strong>Free forever by <a href="https://github.com/nouchee">@nouchee</a></strong></strong></p>
-      </div>
-    </div>
-   </div>
-   </div>
-  <section class="controls-bar">
-    <div class="container">
-      <div class="controls-inner">
-        <!-- Left side: Search + Sort -->
-        <div class="controls-left">
-          <div class="search-wrap">
-            <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="8.5" cy="8.5" r="6"/>
-              <line x1="13" y1="13" x2="18" y2="18"/>
-            </svg>
-            <input type="text" class="search-input" id="searchInput" placeholder="Search states…">
-          </div>
-          <button class="sort-toggle" id="sortToggle" title="Sort A–Z">
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
-              <path d="M3 5h14M3 10h10M3 15h6"/>
-            </svg>
-            <span class="sort-label">A–Z</span>
-          </button>
-          <div class="grid-size-group">
-            <button class="grid-size-btn" data-grid-size="sm">Small</button>
-            <button class="grid-size-btn" data-grid-size="md">Medium</button>
-            <button class="grid-size-btn active" data-grid-size="lg">Large</button>
-          </div>
-        </div>
+  loadSprite().catch(err => {
+    console.error(err);
+    showToast('⚠ Failed to load sprite. Check your network.', 3000);
+  });
 
-        <!-- Right side: Color Customization -->
-        <div class="color-controls">
-          <!-- Fill -->
-          <div class="control-group">
-            <label class="control-label">
-              <input type="checkbox" id="fillToggle" class="form-check-input" checked> Fill
-            </label>
-            <div class="color-picker-wrap" id="fillWrap">
-              <input type="text" id="fillHex" class="hex-input" value="#f2f2f2" maxlength="7">
-              <input type="color" id="fillColor" value="#f2f2f2" class="color-swatch">
-            </div>
-          </div>
+  // ---------- Controls ----------
+  // Swatches
+  document.querySelectorAll('.swatch').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.swatch').forEach(b => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      document.documentElement.style.setProperty('--state-color', btn.dataset.color);
+    });
+  });
 
-          <!-- Stroke -->
-          <div class="control-group">
-            <label class="control-label">
-              <input type="checkbox" id="strokeToggle" class="form-check-input" checked> Stroke
-            </label>
-            <div class="color-picker-wrap" id="strokeWrap">
-              <input type="text" id="strokeHex" class="hex-input" value="#222222" maxlength="7">
-              <input type="color" id="strokeColor" value="#222222" class="color-swatch">
-            </div>
-          </div>
+  // Size toggle — point each <use> at the symbol for the new size
+  document.querySelectorAll('.size-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.size-toggle button').forEach(b => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      currentSize = btn.dataset.size;
+      document.querySelectorAll('.state-card').forEach(card => {
+        const use = card.querySelector('use');
+        if (use) use.setAttribute('href', `#${card.dataset.abbr}-${currentSize}`);
+      });
+    });
+  });
 
-          <!-- Stroke Size -->
-          <div class="control-group stroke-size-group" id="strokeSizeGroup">
-            <label class="control-label">Size: <span id="strokeSizeVal">3</span>px</label>
-            <input type="range" id="strokeSize" min="0.5" max="10" value="3" step="0.5" class="form-range stroke-range">
-          </div>
+  // Filter
+  document.getElementById('search').addEventListener('input', (e) => {
+    const q = e.target.value.trim().toLowerCase();
+    let visibleCount = 0;
+    document.querySelectorAll('.state-card').forEach(card => {
+      const hide = q && !card.dataset.name.includes(q) && !card.dataset.abbr.includes(q);
+      card.dataset.hidden = hide ? 'true' : 'false';
+      if (!hide) visibleCount++;
+    });
+    emptyState.hidden = visibleCount > 0;
+    grid.hidden = visibleCount === 0;
+  });
 
-          <!-- Background -->
-          <div class="control-group">
-            <label class="control-label">
-              <input type="checkbox" id="bgToggle" class="form-check-input"> Background
-            </label>
-            <div class="color-picker-wrap" id="bgWrap">
-              <input type="text" id="bgHex" class="hex-input" value="#ffffff" maxlength="7" disabled>
-              <input type="color" id="bgColor" value="#ffffff" class="color-swatch" disabled>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  // ---------- Standalone SVG assembly ----------
+  // Pulls the requested symbol out of the injected sprite, wraps it in a
+  // standalone <svg>, and bakes in the currently-selected fill so the copied
+  // or downloaded file renders correctly on its own (no external CSS needed).
+  function currentFillColor() {
+    const pressed = document.querySelector('.swatch[aria-pressed="true"]');
+    return pressed ? pressed.dataset.color : '#b8342f';
+  }
 
-  <!-- Grid of SVG Cards -->
-  <main class="main-content">
-    <div class="container">
-      <div class="row g-3" id="stateGrid">
-        <!-- Cards injected by JS -->
-      </div>
-      <div class="no-results" id="noResults" style="display:none;">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2" class="no-results-icon">
-          <circle cx="35" cy="35" r="24"/>
-          <line x1="52" y1="52" x2="70" y2="70"/>
-        </svg>
-        <p>No states found</p>
-      </div>
-    </div>
-  </main>
+  function buildStandaloneSvg(abbr, size, fill) {
+    const symbol = spriteHost.querySelector(`#${CSS.escape(abbr + '-' + size)}`);
+    if (!symbol) return null;
+    const viewBox = symbol.getAttribute('viewBox') || '0 0 100 100';
+    const name = stateByAbbr[abbr] || abbr.toUpperCase();
+    const inner = Array.from(symbol.children).map(c => c.outerHTML).join('');
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" fill="${fill}" aria-label="${name}">${inner}</svg>`;
+  }
 
-  <!-- Download Modal -->
-  <div class="modal fade" id="downloadModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content custom-modal">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitle">Download SVG</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <div class="modal-preview" id="modalPreview"></div>
+  async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } finally { ta.remove(); }
+  }
 
-          <!-- Size selector -->
-          <label class="modal-section-label">Size</label>
-          <div class="size-buttons">
+  let toastTimer = null;
+  function showToast(message, duration = 1800) {
+    toast.innerHTML = message;
+    toast.hidden = false;
+    void toast.offsetWidth;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('is-visible');
+      setTimeout(() => { toast.hidden = true; }, 250);
+    }, duration);
+  }
 
-          <!-- Format selector is below -->
-            <button class="size-btn" data-size="sm">
-              <span class="size-label">Small</span>
-            </button>
-            <button class="size-btn" data-size="md">
-              <span class="size-label">Medium</span>
-            </button>
-            <button class="size-btn active" data-size="lg">
-              <span class="size-label">Large</span>
-            </button>
-          </div>
+  // ---------- Per-state action handlers ----------
+  function kebab(name) {
+    return name.toLowerCase().replace(/\s+/g, '-');
+  }
 
-          <!-- Format selector -->
-          <label class="modal-section-label">File Type</label>
-          <div class="format-buttons">
-            <button class="format-btn active" data-format="svg">SVG</button>
-            <button class="format-btn" data-format="png">PNG</button>
-            <button class="format-btn" data-format="jpg">JPG</button>
-          </div>
+  function flashButton(btn) {
+    btn.classList.remove('is-flashing');
+    void btn.offsetWidth;
+    btn.classList.add('is-flashing');
+    setTimeout(() => btn.classList.remove('is-flashing'), 800);
+  }
 
-          <!-- Actions -->
-          <div class="modal-actions">
-            <button class="btn-action btn-download" id="btnDownload">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M10 3v10m0 0l-4-4m4 4l4-4M3 17h14"/></svg>
-              Download
-            </button>
-            <button class="btn-action btn-copy" id="btnCopy">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="6" y="6" width="11" height="11" rx="2"/><path d="M6 14H5a2 2 0 01-2-2V5a2 2 0 012-2h7a2 2 0 012 2v1"/></svg>
-              Copy SVG Code
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  async function handleCardAction(btn) {
+    const card = btn.closest('.state-card');
+    if (!card) return;
+    const abbr = card.dataset.abbr;
+    const name = stateByAbbr[abbr] || abbr.toUpperCase();
+    const fill = currentFillColor();
+    const svg = buildStandaloneSvg(abbr, currentSize, fill);
+    if (!svg) {
+      showToast('⚠ Sprite not loaded yet — try again', 2000);
+      return;
+    }
 
-  <!-- Hidden canvas for PNG/JPG export -->
-  <canvas id="exportCanvas" width="800" height="800" style="display:none;"></canvas>
+    const action = btn.dataset.action;
+    if (action === 'copy') {
+      try {
+        await copyText(svg);
+        flashButton(btn);
+        showToast(`<span class="toast-accent">✓</span> Copied ${name} (${currentSize})`);
+      } catch (err) {
+        console.error(err);
+        showToast('⚠ Couldn\u2019t access clipboard', 2000);
+      }
+    } else if (action === 'download') {
+      try {
+        const blob = new Blob([svg], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${kebab(name)}-${currentSize}.svg`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        // Revoke on next tick so the download has time to start
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        flashButton(btn);
+        showToast(`<span class="toast-accent">↓</span> Downloaded ${name} (${currentSize})`);
+      } catch (err) {
+        console.error(err);
+        showToast('⚠ Download failed', 2000);
+      }
+    }
+  }
 
-  <!-- Notification Box -->
-  <div class="notification-box notification-hidden d-none" id="notificationBox">
-    <button class="notification-close" id="notificationClose" title="Close">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 4l8 8M12 4l-8 8"/></svg>
-    </button>
-    <div class="notification-inner">
-      <div class="notification-image">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-          <rect width="48" height="48" rx="10" fill="var(--color-bg-muted)"/>
-          <path d="M14 24l4-6h12l4 6-4 6H18z" fill="var(--color-brand)" opacity="0.7"/>
-          <path d="M18 20l2-3h8l2 3-2 3h-8z" fill="var(--color-brand)"/>
-        </svg>
-      </div>
-      <div class="notification-content">
-        <p style="font-size: 20px; font-weight: semibold; line-height: 25px;">Saved you a<br>minute?</p>
-        <a href="#" class="notification-btn">Tip me coffee</a>
-      </div>
-    </div>
-  </div>
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('.state-btn');
+    if (btn) handleCardAction(btn);
+  });
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="app.js"></script>
+  // ---------- Copy buttons on every <pre> ----------
+  // Wraps each <pre> in a relative container and adds a button that copies
+  // the inner text. Reuses the toast + copyText helpers above.
+  document.querySelectorAll('pre').forEach(pre => {
+    const wrap = document.createElement('div');
+    wrap.className = 'pre-wrap';
+    pre.parentNode.insertBefore(wrap, pre);
+    wrap.appendChild(pre);
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'pre-copy-btn';
+    btn.setAttribute('aria-label', 'Copy to clipboard');
+    btn.innerHTML = `
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 3h9a2 2 0 0 1 2 2v9M6 6h9a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/>
+      </svg>
+      <span>Copy</span>
+    `;
+    btn.addEventListener('click', async () => {
+      const code = pre.querySelector('code');
+      const text = (code ? code.textContent : pre.textContent).trim();
+      try {
+        await copyText(text);
+        showToast('<span class="toast-accent">✓</span> Copied to clipboard');
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1200);
+      } catch (err) {
+        console.error(err);
+        showToast('⚠ Couldn\u2019t access clipboard', 2000);
+      }
+    });
+    wrap.appendChild(btn);
+  });
+</script>
 </body>
 </html>
